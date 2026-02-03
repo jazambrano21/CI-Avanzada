@@ -68,7 +68,7 @@ public class WalletService {
             throw new IllegalArgumentException("Amount cannot be negative");
         }
         Wallet wallet = walletRepository.findById(walletId).orElseThrow(() -> new
-                IllegalArgumentException("Wallet not found"));
+                IllegalStateException("Wallet not found"));
 
         if(wallet.getBalance() < amount) {
             throw new IllegalStateException("Insufficient funds");
